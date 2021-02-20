@@ -11,4 +11,6 @@ RUN pip3 install aiodnsbrute
 RUN echo 8.8.8.8 > /root/dns_resolver.txt
 COPY main.sh /root/main.sh
 RUN chmod +x /root/main.sh
+RUN mkdir /data
+COPY parse.py /code/aioparse.py
 ENTRYPOINT [ "../root/main.sh" ]
