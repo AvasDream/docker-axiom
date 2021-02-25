@@ -10,5 +10,3 @@ cat "/alternated.txt" | sed "s/.$DOMAIN//" > "/alternated_subdomains.txt"
 aiodnsbrute -r /root/dns_resolver.txt -w /alternated_subdomains.txt --no-verify -t 64 $DOMAIN -o json -f "aiodns-$DOMAIN.json" &> /dev/null
 python /code/aioparse.py "aiodns-$DOMAIN.json" results.txt &> /dev/null
 cat results.txt
-#cat aiodns.txt | grep "\[+\]" | cut -d " " -f2
-echo "$(wc -l /alternated.txt)"
